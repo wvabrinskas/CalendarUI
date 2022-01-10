@@ -1,8 +1,3 @@
-//
-//  
-//  MonthView.swift
-//  Pland
-//
 //  Created by William Vabrinskas on 9/29/21.
 //
 //
@@ -10,6 +5,7 @@
 import Foundation
 import SwiftUI
 
+/// The view that shows the full month
 public struct MonthView: View {
   public var viewModel: MonthViewModel
   public var dayChanged: ((_ day: Int) -> ())? = nil
@@ -33,6 +29,10 @@ public struct MonthView: View {
     return offset
   }
   
+  /// The initializer method
+  /// - Parameters:
+  ///   - viewModel: The view model that describes how this view will be built
+  ///   - dayChanged: The call back that is fired when a day is tapped. This will return the day number.
   public init(viewModel: MonthViewModel,
               dayChanged: ((_ day: Int) -> ())? = nil) {
     self.viewModel = viewModel

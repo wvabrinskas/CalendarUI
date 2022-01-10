@@ -1,8 +1,3 @@
-//
-//  
-//  DayView.swift
-//  Pland
-//
 //  Created by William Vabrinskas on 10/12/21.
 //
 //
@@ -10,10 +5,15 @@
 import Foundation
 import SwiftUI
 
+/// The view that shows a day of the month
 public struct DayView: View {
   public var viewModel: DayViewModel
   public var didSelect: (_ value: Int) -> ()
   
+  /// Initializer method
+  /// - Parameters:
+  ///   - viewModel: The model that describes how this view will be built
+  ///   - didSelect: The call back that is fired when this view is tapped
   public init(viewModel: DayViewModel,
               didSelect: @escaping (_ value: Int) -> ()) {
     self.viewModel = viewModel

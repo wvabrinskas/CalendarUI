@@ -88,19 +88,28 @@ public enum Day: Int, CaseIterable {
   }
 }
 
+/// Model describing a single year
 public struct YearModel {
   public var months: [MonthModel]
   
+  /// Initializer method
+  /// - Parameter months: Array of `MonthModel`s for this year
   public init(months: [MonthModel] = []) {
     self.months = months
   }
 }
 
+/// Model describing a single month
 public struct MonthModel {
   public var name: String
   public var number: Int
   public var days: [DayModel]
   
+  /// Initializer method
+  /// - Parameters:
+  ///   - name: Name of the month
+  ///   - number: Number of the month
+  ///   - days: Array of `DayModel`s for the days of the month
   public init(name: String,
               number: Int,
               days: [DayModel] = []) {
@@ -110,10 +119,16 @@ public struct MonthModel {
   }
 }
 
+
+/// Model describing a single day
 public struct DayModel {
   public var number: Int
   public var dayOfWeek: Day
   
+  /// Initializer
+  /// - Parameters:
+  ///   - number: Number of the day
+  ///   - dayOfWeek: Day of the week of this particular day
   public init(number: Int, dayOfWeek: Day) {
     self.number = number
     self.dayOfWeek = dayOfWeek

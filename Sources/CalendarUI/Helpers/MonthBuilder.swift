@@ -1,7 +1,3 @@
-//
-//  File.swift
-//  
-//
 //  Created by William Vabrinskas on 1/9/22.
 //
 
@@ -16,6 +12,11 @@ public protocol MonthBuilder {
 }
 
 public extension MonthBuilder {
+  /// Builds a `MonthModel` with the given month and year
+  /// - Parameters:
+  ///   - month: The number of the month to build
+  ///   - year: The number of the year to build
+  /// - Returns: A `MonthModel` from the given month and year
   func getMonthModel(month: Int, year: Int) ->  MonthModel {
     let dateUtility = DateUtility()
     let calendar = dateUtility.calendar

@@ -5,6 +5,7 @@ import Foundation
 import SwiftUI
 import UIKit
 
+/// A model that describes how the `DayView` will be built
 public struct DayViewModel {
   public var title: String
   public var font: Font
@@ -12,6 +13,14 @@ public struct DayViewModel {
   public var isSelected: Bool
   public var selectedColor: Color
   
+  
+  /// Initializer method
+  /// - Parameters:
+  ///   - title: Title for this specific day
+  ///   - font: Font for the day label
+  ///   - number: Number of the day
+  ///   - isSelected: Boolean indicating if the `DayView` is selected
+  ///   - selectedColor: The highlight color of the `DayView` when it's selected
   public init(title: String = "0",
               font: Font = .system(.body),
               number: Int = 1,
