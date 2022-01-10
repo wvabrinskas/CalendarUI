@@ -10,22 +10,22 @@
 import Foundation
 import SwiftUI
 
-struct MonthView: View {  
-  var viewModel: MonthViewModel
-  var dayChanged: ((_ day: Int) -> ())? = nil
+public struct MonthView: View {
+  public var viewModel: MonthViewModel
+  public var dayChanged: ((_ day: Int) -> ())? = nil
     
-  var totalDays: Int {
+  private var totalDays: Int {
     return viewModel.model.days.count
   }
   
-  var numOfRows: Int {
+  private var numOfRows: Int {
     var days = viewModel.model.days.count
     days += offset
     let round = Double(days).truncatingRemainder(dividingBy: Double(7))
     return round > 0 ? Int(floor(Double(days) / 7) + 1) : Int(Double(days) / 7)
   }
   
-  var offset: Int {
+  private var offset: Int {
     var offset = 0
     if let first = viewModel.model.days.first {
       offset = first.dayOfWeek.rawValue
@@ -33,7 +33,13 @@ struct MonthView: View {
     return offset
   }
   
-  var body: some View {
+  public init(viewModel: MonthViewModel,
+              dayChanged: ((_ day: Int) -> ())? = nil) {
+    self.viewModel = viewModel
+    self.dayChanged = dayChanged
+  }
+  
+  public var body: some View {
     VStack {
       if viewModel.showMonthTitle {
         HStack {
@@ -98,14 +104,14 @@ struct MonthView: View {
     }
   }
 
-  func isDaySelected(num: Int) -> Bool {
+  private func isDaySelected(num: Int) -> Bool {
     return viewModel.selectedDay == num
   }
 }
 
 
-struct MonthView_Previews: PreviewProvider {
-  static var previews: some View {
+public struct MonthView_Previews: PreviewProvider {
+  public static var previews: some View {
     Group {
       MonthView(viewModel: .mock())
       MonthView(viewModel: .mock())

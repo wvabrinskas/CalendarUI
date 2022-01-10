@@ -6,9 +6,21 @@ import SwiftUI
 import UIKit
 
 public struct DayViewModel {
-  public var title: String = "0"
-  public var font: Font = .system(.body)
-  public var number: Int = 1
-  public var isSelected: Bool = false
-  public var selectedColor: Color = Color(UIColor.systemGray6)
+  public var title: String
+  public var font: Font
+  public var number: Int
+  public var isSelected: Bool
+  public var selectedColor: Color
+  
+  public init(title: String = "0",
+              font: Font = .system(.body),
+              number: Int = 1,
+              isSelected: Bool = false,
+              selectedColor: Color = Color(UIColor.systemGray6)) {
+    self.title = title
+    self.font = font
+    self.number = number
+    self.isSelected = isSelected
+    self.selectedColor = selectedColor
+  }
 }

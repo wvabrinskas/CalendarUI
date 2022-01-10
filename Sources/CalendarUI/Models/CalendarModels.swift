@@ -89,16 +89,33 @@ public enum Day: Int, CaseIterable {
 }
 
 public struct YearModel {
-  public var months: [MonthModel] = []
+  public var months: [MonthModel]
+  
+  public init(months: [MonthModel] = []) {
+    self.months = months
+  }
 }
 
 public struct MonthModel {
   public var name: String
   public var number: Int
-  public var days: [DayModel] = []
+  public var days: [DayModel]
+  
+  public init(name: String,
+              number: Int,
+              days: [DayModel] = []) {
+    self.name = name
+    self.number = number
+    self.days = days
+  }
 }
 
 public struct DayModel {
   public var number: Int
   public var dayOfWeek: Day
+  
+  public init(number: Int, dayOfWeek: Day) {
+    self.number = number
+    self.dayOfWeek = dayOfWeek
+  }
 }
