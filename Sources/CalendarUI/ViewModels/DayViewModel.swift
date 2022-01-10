@@ -5,10 +5,10 @@ import Foundation
 import SwiftUI
 import UIKit
 
-struct DayViewModel {
-  var title: String = "0"
-  var font: Font = .system(.body)
-  var number: Int = 1
-  var isSelected: Bool = false
-  var selectedColor: Color = Color(UIColor.systemGray6)
+public struct DayViewModel {
+  public var title: String = "0"
+  public var font: Font = .system(.body)
+  public var number: Int = 1
+  public var isSelected: Bool = false
+  public var selectedColor: Color = Color(UIColor.systemGray6)
 }

@@ -5,7 +5,7 @@
 import Foundation
 import SwiftUI
 
-enum Month: Int, CaseIterable {
+public enum Month: Int, CaseIterable {
   case january,
        february,
        march,
@@ -19,7 +19,7 @@ enum Month: Int, CaseIterable {
        november,
        december
   
-  var title: String {
+  public var title: String {
     switch self {
     case .january: return "January"
     case .february: return "February"
@@ -36,7 +36,7 @@ enum Month: Int, CaseIterable {
     }
   }
   
-  var abbreviation: String {
+  public var abbreviation: String {
     switch self {
     case .january: return "Jan"
     case .february: return "Feb"
@@ -54,7 +54,7 @@ enum Month: Int, CaseIterable {
   }
 }
 
-enum Day: Int, CaseIterable {
+public enum Day: Int, CaseIterable {
   case sunday
   case monday
   case tuesday
@@ -63,7 +63,7 @@ enum Day: Int, CaseIterable {
   case friday
   case saturday
   
-  var title: String {
+  public var title: String {
     switch self {
     case .monday: return "Monday"
     case .tuesday: return "Tuesday"
@@ -75,7 +75,7 @@ enum Day: Int, CaseIterable {
     }
   }
   
-  var abbreviation: String {
+  public var abbreviation: String {
     switch self {
     case .monday: return "M"
     case .tuesday: return "T"
@@ -88,17 +88,17 @@ enum Day: Int, CaseIterable {
   }
 }
 
-struct YearModel {
-  var months: [MonthModel] = []
+public struct YearModel {
+  public var months: [MonthModel] = []
 }
 
-struct MonthModel {
-  var name: String
-  var number: Int 
-  var days: [DayModel] = []
+public struct MonthModel {
+  public var name: String
+  public var number: Int
+  public var days: [DayModel] = []
 }
 
-struct DayModel {
-  var number: Int
-  var dayOfWeek: Day
+public struct DayModel {
+  public var number: Int
+  public var dayOfWeek: Day
 }

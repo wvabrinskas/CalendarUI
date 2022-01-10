@@ -3,17 +3,17 @@
 
 import Foundation
 
-struct Time {
-  var hour: Int
-  var minute: Int
-  var ampm: String
+public struct Time {
+  public var hour: Int
+  public var minute: Int
+  public var ampm: String
   
-  var asString: String {
+  public var asString: String {
     let minuteString = minute < 10 ? "0\(minute)" : "\(minute)"
     return "\(hour):\(minuteString) \(ampm)"
   }
   
-  init(hour: Int, minute: Int) {
+  public init(hour: Int, minute: Int) {
     self.minute = minute
     
     var converted = hour > 12 ? hour - 12 : hour
@@ -23,22 +23,22 @@ struct Time {
     self.ampm = Self.getAMPM(hour: hour)
   }
   
-  static func getAMPM(hour: Int) -> String {
+  public static func getAMPM(hour: Int) -> String {
     let ampmHour = hour - 12  == 0 ? 12 : hour - 12
     let ampm = ampmHour.signum() == 1 ? "pm" : "am"
     return ampm
   }
 }
 
-struct TimeSlot {
-  var start: Time
-  var end: Time
+public struct TimeSlot {
+  public var start: Time
+  public var end: Time
 }
 
-struct DateUtility {
+public struct DateUtility {
   public var calendar: Calendar = .current
 
-  func convertDate(_ date: Date) -> Date {
+  public func convertDate(_ date: Date) -> Date {
     let formatter = DateFormatter()
     formatter.calendar = calendar
     formatter.timeZone = TimeZone(abbreviation: "UTC")
@@ -50,7 +50,7 @@ struct DateUtility {
     return newDate
   }
 
-  static public let itemFormatter: DateFormatter = {
+  public static let itemFormatter: DateFormatter = {
     let formatter = DateFormatter()
     formatter.dateStyle = .short
     formatter.timeStyle = .medium

@@ -1,28 +1,22 @@
-//  Created by William Vabrinskas on 9/29/21.
+//
+//  File.swift
+//  
+//
+//  Created by William Vabrinskas on 1/9/22.
 //
 
 import Foundation
-import SwiftUI
-import UIKit
 
-public struct MonthViewModel {
-  public var model: MonthModel = .init(name: "January", number: 1)
-  public var font: Font = .system(.body)
-  public var linePadding: CGFloat = 4
-  public var titleSize: Double = 16
-  public var selectedYear: Int
-  public var selectedDay: Int
-  public var showMonthTitle: Bool = false
+/// Optional helper for building `MonthModel`s
+public protocol MonthBuilder {
   
-  public static func mock() -> MonthViewModel {
-    let model = Self.getMonthModel(month: 1, year: 2022)
-    return MonthViewModel(model: model,
-                          selectedYear: 2022,
-                          selectedDay: 10,
-                          showMonthTitle: true)
-  }
-  
-  private static func getMonthModel(month: Int, year: Int) ->  MonthModel {
+  /// Builds a `MonthModel` with the given month and year
+  /// - Returns: A `MonthModel` from the given month and year
+  func getMonthModel(month: Int, year: Int) ->  MonthModel
+}
+
+public extension MonthBuilder {
+  func getMonthModel(month: Int, year: Int) ->  MonthModel {
     let dateUtility = DateUtility()
     let calendar = dateUtility.calendar
     let count = dateUtility.numberOfDays(in: month, for: year)
@@ -45,8 +39,6 @@ public struct MonthViewModel {
     }
     
     let monthName = Month(rawValue: month - 1) ?? .january
-    
     return MonthModel(name: monthName.title, number: monthName.rawValue + 1, days: days)
   }
-  
 }
